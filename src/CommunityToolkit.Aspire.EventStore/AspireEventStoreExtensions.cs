@@ -36,6 +36,22 @@ public static class AspireEventStoreExtensions
     }
 
     /// <summary>
+    /// Registers <see cref="EventStoreClient" /> as a singleton in the services provided by the <paramref name="builder"/>.
+    /// </summary>
+    /// <param name="builder">The <see cref="IHostApplicationBuilder" /> to read config from and add services to.</param>
+    /// <param name="connectionName">The connection name to use to find a connection string.</param>
+    /// <param name="configureSettings">An optional method that can be used for customizing the <see cref="EventStoreSettings"/>. It's invoked after the settings are read from the configuration.</param>
+    public static void AddEventStoreClientV2(
+        this IHostApplicationBuilder builder,
+        string connectionName,
+        Action<EventStoreSettings>? configureSettings = null)
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNullOrEmpty(connectionName);
+        AddEventStoreClient(builder, DefaultConfigSectionName, configureSettings, connectionName, serviceKey: null);
+    }
+
+    /// <summary>
     /// Registers <see cref="EventStoreClient" /> as a keyed singleton for the given <paramref name="name" /> in the services provided by the <paramref name="builder"/>.
     /// </summary>
     /// <param name="builder">The <see cref="IHostApplicationBuilder" /> to read config from and add services to.</param>

@@ -1,2 +1,2 @@
 #nullable enable
-
+static Microsoft.Extensions.Hosting.AspireEventStoreExtensions.AddEventStoreClientV2(this Microsoft.Extensions.Hosting.IHostApplicationBuilder! builder, string! connectionName, System.Action<CommunityToolkit.Aspire.EventStore.EventStoreSettings!>? configureSettings = null) -> void
