@@ -26,6 +26,8 @@ namespace Microsoft.Extensions.Hosting
     {
         public static void AddEventStoreClient(this IHostApplicationBuilder builder, string connectionName, System.Action<CommunityToolkit.Aspire.EventStore.EventStoreSettings>? configureSettings = null) { }
 
+        public static void AddEventStoreClientV2(this IHostApplicationBuilder builder, string connectionName, System.Action<CommunityToolkit.Aspire.EventStore.EventStoreSettings>? configureSettings = null) { }
+
         public static void AddKeyedEventStoreClient(this IHostApplicationBuilder builder, string name, System.Action<CommunityToolkit.Aspire.EventStore.EventStoreSettings>? configureSettings = null) { }
     }
 }
